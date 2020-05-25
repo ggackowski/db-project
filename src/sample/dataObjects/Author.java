@@ -1,17 +1,21 @@
 package sample.dataObjects;
 
+import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
+@Entity
 public class Author {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private int dbID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int dbID;
 
     private String name;
     private String surname;
+    @OneToMany
+    @JoinColumn(name = "AUTHOR_FK")
     private List<Recipe> recipes;
 
     public Author() {}

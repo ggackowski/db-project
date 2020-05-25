@@ -13,6 +13,7 @@
         <property name="connection.driver_class">org.sqlite.JDBC</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
+        <mapping class="sample.Recipe"/>
         <mapping class="sample.dataObjects.Author"/>
         <mapping class="sample.dataObjects.Rating"/>
         <mapping class="sample.dataObjects.Recipe"/>

@@ -1,17 +1,19 @@
 package sample.dataObjects;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
+@Entity
 public class User {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private int dbID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int dbID;
 
     private String name;
     private String surname;
+    @OneToMany
     private List<Rating> ratings;
 
     public User() {}

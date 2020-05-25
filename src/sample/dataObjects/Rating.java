@@ -1,14 +1,18 @@
 package sample.dataObjects;
 
-//@Entity
+import javax.persistence.*;
+
+@Entity
 public class Rating {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private int dbID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int dbID;
 
     private int rate;
+    @OneToOne
     private User user;
+    @OneToOne
     private Recipe recipe;
 
     public Rating() {}
