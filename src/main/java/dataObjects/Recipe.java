@@ -56,4 +56,8 @@ public class Recipe {
             return;
         ratings.add(rating);
     }
+
+    public void addAuthor(Author author) {
+        this.author = author;
+    }
 }
