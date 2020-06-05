@@ -19,12 +19,13 @@ public class Controller {
         User user = new User("Admin","Adminski","admin@admin.com","admin");
         Recipe recipe = new Recipe(user);
         recipe.addDescription("Very good one");
-        databaseProvider.addRecipe(recipe, user);
+
+        databaseProvider.addUser(user);
+        databaseProvider.addRecipe(recipe);
 
 
         List<Recipe> recipes = databaseProvider.getRecipes();
-        for (int i = 0; i < recipes.size(); ++i)
-            listView.getItems().add(new Text(recipes.get(i).getDescription()));
+        for (Recipe value : recipes) listView.getItems().add(new Text(value.getDescription()));
 
     }
 

@@ -1,3 +1,4 @@
+import dataObjects.Product;
 import dataObjects.Recipe;
 import dataObjects.User;
 import org.hibernate.*;
@@ -48,12 +49,26 @@ public class DatabaseProvider {
         Query query = getSession().createQuery("from Recipe");
         return query.list();
     }
+    public List<User> getUsers() {
+        Query query = getSession().createQuery("from User");
+        return query.list();
+    }
+    public List<Product> getProduct() {
+        Query query = getSession().createQuery("from Product");
+        return query.list();
+    }
 
-    public void addRecipe(Recipe recipe, User author) {
+    public void addRecipe (Recipe recipe) {
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         session.save(recipe);
-        session.save(author);
+        tx.commit();
+    }
+
+    public void addUser (User user) {
+        Session session = getSession();
+        Transaction tx = session.beginTransaction();
+        session.save(user);
         tx.commit();
     }
 }
