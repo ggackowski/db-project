@@ -1,4 +1,5 @@
 import dataObjects.Product;
+import dataObjects.Rating;
 import dataObjects.Recipe;
 import dataObjects.User;
 import org.hibernate.*;
@@ -69,6 +70,20 @@ public class DatabaseProvider {
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         session.save(user);
+        tx.commit();
+    }
+
+    public void addProduct (Product product) {
+        Session session = getSession();
+        Transaction tx = session.beginTransaction();
+        session.save(product);
+        tx.commit();
+    }
+
+    public void addRating (Rating rating) {
+        Session session = getSession();
+        Transaction tx = session.beginTransaction();
+        session.save(rating);
         tx.commit();
     }
 }
