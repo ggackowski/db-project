@@ -1,7 +1,4 @@
-import dataObjects.Product;
-import dataObjects.Rating;
-import dataObjects.Recipe;
-import dataObjects.User;
+import dataObjects.*;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
