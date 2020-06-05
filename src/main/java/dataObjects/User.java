@@ -16,11 +16,16 @@ public class User {
     @OneToMany
     private List<Rating> ratings;
 
+    @OneToMany
+    @JoinColumn(name = "USER_FK")
+    private List<Recipe> recipes;
+
     public User() {}
     public User(String name, String surname) {
         this.name = name;
         this.surname = surname;
         this.ratings = new ArrayList<>();
+        this.recipes = new ArrayList<>();
     }
 
     public String getName() {
@@ -32,9 +37,18 @@ public class User {
     public List<Rating> getRatings() {
         return ratings;
     }
+    public List<Recipe> getRecipes() {
+        return recipes;
+    }
+
     public void addRating (Rating rating) {
         if(ratings.contains(rating))
             return;
         ratings.add(rating);
+    }
+    public void addRecipe (Recipe recipe) {
+        if(recipes.contains(recipe))
+            return;
+        recipes.add(recipe);
     }
 }

@@ -1,5 +1,5 @@
-import dataObjects.Author;
 import dataObjects.Recipe;
+import dataObjects.User;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
@@ -49,12 +49,11 @@ public class DatabaseProvider {
         return query.list();
     }
 
-    public void addRecipe(Recipe recipe, Author author) {
+    public void addRecipe(Recipe recipe, User author) {
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         session.save(recipe);
         session.save(author);
         tx.commit();
-
     }
 }

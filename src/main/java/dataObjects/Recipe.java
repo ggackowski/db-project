@@ -12,25 +12,25 @@ public class Recipe {
     private int dbID;
 
     @ManyToOne
-    private Author author;
+    private User author;
     private String description;
 
 //    @OneToMany
 //    private List<String> ingredients;
 
     @OneToMany
-    @JoinColumn(name = "AUTHOR_FK")
+    @JoinColumn(name = "RECIPE_FK")
     private List<Rating> ratings;
 
     public Recipe() {}
-    public Recipe(Author author) {
+    public Recipe(User author) {
         this.author = author;
         this.ratings = new ArrayList<>();
 //        this.ingredients = new ArrayList<>();
         author.addRecipe(this);
     }
 
-    public Author getAuthor() {
+    public User getAuthor() {
         return author;
     }
     public String getDescription() {
@@ -57,7 +57,7 @@ public class Recipe {
         ratings.add(rating);
     }
 
-    public void addAuthor(Author author) {
+    public void addAuthor(User author) {
         this.author = author;
     }
 }
