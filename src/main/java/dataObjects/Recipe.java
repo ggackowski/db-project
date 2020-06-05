@@ -15,18 +15,23 @@ public class Recipe {
     private User author;
     private String description;
 
-//    @OneToMany
-//    private List<String> ingredients;
-
     @OneToMany
     @JoinColumn(name = "RECIPE_FK")
-    private List<Rating> ratings;
+    private final List<Rating> ratings = new ArrayList<>();
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "ingredients",
+            joinColumns = @JoinColumn(name = "RECIPE_ID"),
+            inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID")
+    )
+    private final List<Product> ingredients = new ArrayList<>();
 
     public Recipe() {}
     public Recipe(User author) {
         this.author = author;
-        this.ratings = new ArrayList<>();
-//        this.ingredients = new ArrayList<>();
         author.addRecipe(this);
     }
 
@@ -36,9 +41,6 @@ public class Recipe {
     public String getDescription() {
         return description;
     }
-//    public List<String> getIngredients() {
-//        return ingredients;
-//    }
     public List<Rating> getRatings() {
         return ratings;
     }
@@ -46,15 +48,13 @@ public class Recipe {
     public void addDescription (String description) {
         this.description = description;
     }
-//    public void addIngredient (String ingredient) {
-//        if(ingredients.contains(ingredient))
-//            return;
-//        ingredients.add(ingredient);
-//    }
+    public void addIngredient (Product ingredient) {
+        if(!ingredients.contains(ingredient))
+            ingredients.add(ingredient);
+    }
     public void addRating (Rating rating) {
-        if(ratings.contains(rating))
-            return;
-        ratings.add(rating);
+        if(!ratings.contains(rating))
+            ratings.add(rating);
     }
 
     public void addAuthor(User author) {

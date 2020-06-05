@@ -1,4 +1,5 @@
 import dataObjects.Recipe;
+import dataObjects.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
@@ -14,14 +15,14 @@ public class Controller {
     void initialize() {
         DatabaseProvider databaseProvider = new DatabaseProvider();
 
-        /*
-        Author author = new Author("Admin", "Admin");
-        Recipe recipe = new Recipe(author);
-        recipe.addDescription("Very good one");
-        databaseProvider.addRecipe(recipe, author);
-        */
 
-        List<Recipe> recipes = databaseProvider.getRecipies();
+        User user = new User("Admin","Adminski","admin@admin.com","admin");
+        Recipe recipe = new Recipe(user);
+        recipe.addDescription("Very good one");
+        databaseProvider.addRecipe(recipe, user);
+
+
+        List<Recipe> recipes = databaseProvider.getRecipes();
         for (int i = 0; i < recipes.size(); ++i)
             listView.getItems().add(new Text(recipes.get(i).getDescription()));
 

@@ -44,7 +44,7 @@ public class DatabaseProvider {
         }
     }
 
-    public List<Recipe> getRecipies() {
+    public List<Recipe> getRecipes() {
         Query query = getSession().createQuery("from Recipe");
         return query.list();
     }

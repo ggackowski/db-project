@@ -13,19 +13,23 @@ public class User {
 
     private String name;
     private String surname;
+
+    private String email;
+    private String password;
+
     @OneToMany
-    private List<Rating> ratings;
+    private final List<Rating> ratings = new ArrayList<>();
 
     @OneToMany
     @JoinColumn(name = "USER_FK")
-    private List<Recipe> recipes;
+    private final List<Recipe> recipes = new ArrayList<>();
 
     public User() {}
-    public User(String name, String surname) {
+    public User(String name, String surname, String email, String password) {
         this.name = name;
         this.surname = surname;
-        this.ratings = new ArrayList<>();
-        this.recipes = new ArrayList<>();
+        this.email = email;
+        this.password = password;
     }
 
     public String getName() {
@@ -34,6 +38,13 @@ public class User {
     public String getSurname() {
         return surname;
     }
+    public String getEmail() {
+        return email;
+    }
+    public String getPassword() {
+        return password;
+    }
+
     public List<Rating> getRatings() {
         return ratings;
     }
@@ -42,13 +53,11 @@ public class User {
     }
 
     public void addRating (Rating rating) {
-        if(ratings.contains(rating))
-            return;
-        ratings.add(rating);
+        if(!ratings.contains(rating))
+            ratings.add(rating);
     }
     public void addRecipe (Recipe recipe) {
-        if(recipes.contains(recipe))
-            return;
-        recipes.add(recipe);
+        if(!recipes.contains(recipe))
+            recipes.add(recipe);
     }
 }
