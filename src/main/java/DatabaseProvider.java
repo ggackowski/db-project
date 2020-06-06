@@ -59,7 +59,7 @@ public class DatabaseProvider {
         Query query = getSession().createQuery("from User");
         return query.list();
     }
-    public List<Product> getProduct() {
+    public List<Product> getProducts() {
         Query query = getSession().createQuery("from Product");
         return query.list();
     }
@@ -70,25 +70,41 @@ public class DatabaseProvider {
         session.save(recipe);
         tx.commit();
     }
-
     public void addUser (User user) {
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         session.save(user);
         tx.commit();
     }
-
     public void addProduct (Product product) {
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         session.save(product);
         tx.commit();
     }
-
     public void addRating (Rating rating) {
         Session session = getSession();
         Transaction tx = session.beginTransaction();
         session.save(rating);
         tx.commit();
+    }
+
+    public User getUserByName (String name, String surname) {
+        List<User> allUsers = getUsers();
+
+        for(User user : allUsers) {
+            if(user.getName().equals(name) && user.getSurname().equals(surname))
+                return user;
+        }
+        return null;
+    }
+    public Product getProductByName (String name) {
+        List<Product> allProducts = getProducts();
+
+        for(Product product : allProducts) {
+            if(product.getName().equals(name))
+                return product;
+        }
+        return null;
     }
 }

@@ -25,4 +25,8 @@ public class Product {
         if(!recipes.contains(recipe))
             recipes.add(recipe);
     }
+
+    public String getName() {
+        return name;
+    }
 }
