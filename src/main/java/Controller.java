@@ -13,7 +13,7 @@ public class Controller {
 
     @FXML
     void initialize() {
-        DatabaseProvider databaseProvider = new DatabaseProvider();
+        DatabaseProvider databaseProvider = DatabaseProvider.getInstance();
 
 
         User user = new User("Admin","Adminski","admin@admin.com","admin");

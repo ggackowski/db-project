@@ -10,6 +10,8 @@ public class DatabaseProvider {
 
     private static final SessionFactory ourSessionFactory;
 
+    private static DatabaseProvider instance;
+
     static {
         try {
             Configuration configuration = new Configuration();
@@ -25,7 +27,7 @@ public class DatabaseProvider {
         return ourSessionFactory.openSession();
     }
 
-    public DatabaseProvider() {
+    private DatabaseProvider() {
         final Session session = getSession();
         try {
             System.out.println  ("querying all the managed entities...");
@@ -41,6 +43,12 @@ public class DatabaseProvider {
         } finally {
             session.close();
         }
+    }
+
+    public static DatabaseProvider getInstance() {
+        if(instance == null)
+            instance = new DatabaseProvider();
+        return instance;
     }
 
     public List<Recipe> getRecipes() {

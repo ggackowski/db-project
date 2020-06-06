@@ -7,8 +7,8 @@ public class CurrentUser {
     private User loggedUser;
     private DatabaseProvider dbProvider;
 
-    public CurrentUser(DatabaseProvider dbProvider) {
-        this.dbProvider = dbProvider;
+    public CurrentUser() {
+        this.dbProvider = DatabaseProvider.getInstance();
     }
 
     public boolean login (String email, String password) {
