@@ -22,7 +22,7 @@ public class Rating {
         this.rate = rate;
         user.addRating(this);
         recipe.addRating(this);
-    }
+    }   
 
     public int getRate() {
         return rate;

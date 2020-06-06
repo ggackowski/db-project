@@ -3,6 +3,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
+import javax.xml.crypto.Data;
+
 public class LoggingScreen  {
 
     @FXML
@@ -36,6 +38,13 @@ public class LoggingScreen  {
         String login = this.loginField.getText();
         String password = this.passwordField.getText();
         System.out.println(login + " " + password);
+        CurrentUser currentUser = new CurrentUser();
+        if (currentUser.login(login, password)) {
+            System.out.println("zalogowan");
+        }
+        else {
+            System.out.println("nie zalogowan");
+        }
     }
 
 }

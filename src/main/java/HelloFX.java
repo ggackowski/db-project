@@ -1,4 +1,5 @@
 
+import dataObjects.Product;
 import dataObjects.Rating;
 import dataObjects.Recipe;
 import javafx.application.Application;
@@ -16,6 +17,7 @@ import org.hibernate.query.Query;
 import javax.persistence.metamodel.EntityType;
 
 public class HelloFX extends Application {
+
     static ScenesManagerSingleton scenesManager;
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -27,6 +29,7 @@ public class HelloFX extends Application {
     }
 
     public static void main(String[] args) {
+
         launch(args);
 
 

@@ -15,7 +15,7 @@
             <Text layoutX="235.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" wrappingWidth="302.3740234375" />
             <TextField fx:id="repeatPasswordField" layoutX="235.0" layoutY="265.0" />
             <Text layoutX="235.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="302.3740234375" />
-            <Button fx:id="registerButton" layoutX="333.0" layoutY="308.0" mnemonicParsing="false" text="Register" />
+            <Button fx:id="registerButton" layoutX="333.0" layoutY="308.0" mnemonicParsing="false" onAction="#registerButtonOnAction" text="Register" />
             <TextField fx:id="passwordField" layoutX="235.0" layoutY="200.0" />
             <Text layoutX="235.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repeat password" wrappingWidth="302.3740234375" />
             <Button fx:id="backButton" layoutX="235.0" layoutY="308.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />

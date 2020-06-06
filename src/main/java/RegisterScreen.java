@@ -32,4 +32,10 @@ public class RegisterScreen {
         HelloFX.scenesManager.setScene("Loggin");
     }
 
+    @FXML
+    public void registerButtonOnAction() {
+        //TU REJESTRACJA
+        HelloFX.scenesManager.setScene("List");
+    }
+
 }
