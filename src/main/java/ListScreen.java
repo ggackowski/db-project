@@ -16,6 +16,9 @@ public class ListScreen {
     private Button addNewRecipeButton;
 
     @FXML
+    private Button sampleRecipeButton;
+
+    @FXML
     void initialize() {
        // DatabaseProvider databaseProvider = DatabaseProvider.getInstance();
 
@@ -40,5 +43,9 @@ public class ListScreen {
     @FXML
     public void addNewRecipeButtonOnAction() {
         HelloFX.scenesManager.setScene("NewRecipe");
+    }
+
+    public void sampleRecipeButtonOnAction() {
+        HelloFX.scenesManager.setScene("View");
     }
 }

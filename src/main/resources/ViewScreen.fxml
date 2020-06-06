@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewScreen">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Text layoutX="87.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="109.3740234375" />
+            <Button fx:id="addNewRecipeButton" layoutX="551.0" layoutY="311.0" mnemonicParsing="false" onAction="#voteButtonOnAction" text="Vote" />
+            <Text layoutX="87.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="109.3740234375" />
+            <Text layoutX="87.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients" wrappingWidth="109.3740234375" />
+            <Text layoutX="411.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to" wrappingWidth="109.3740234375" />
+            <Text fx:id="titleText" layoutX="87.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title text" wrappingWidth="109.3740234375" />
+            <Text fx:id="descriptionText" layoutX="87.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description text" wrappingWidth="109.3740234375" />
+            <Text fx:id="ingredientsText" layoutX="87.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients text" wrappingWidth="109.3740234375" />
+            <Text fx:id="howToText" layoutX="411.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to text" wrappingWidth="109.3740234375" />
+            <Button fx:id="addNewRecipeButton1" layoutX="87.0" layoutY="311.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
+            <Button fx:id="addNewRecipeButton11" layoutX="538.0" layoutY="26.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" text="Delete" />
+            <ChoiceBox fx:id="voteBox" layoutX="477.0" layoutY="311.0" prefHeight="26.0" prefWidth="61.0" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

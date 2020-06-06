@@ -9,7 +9,7 @@ import java.util.HashMap;
  *
  * Singleton obsługujący funkcjonalność przechodzenia pomiędzy scenami
  */
-public class ScenesManagerSingleton {
+public class ScenesManager {
 
     HashMap<String, Scene> scenes;
     Stage stage;
@@ -18,7 +18,7 @@ public class ScenesManagerSingleton {
      * @param s nazwa stage
      * @throws java.io.IOException
      */
-    public ScenesManagerSingleton(Stage s) throws java.io.IOException {
+    public ScenesManager(Stage s) throws java.io.IOException {
         stage = s;
         scenes = new HashMap<>();
         Parent root;
@@ -26,7 +26,8 @@ public class ScenesManagerSingleton {
                 "Loggin",
                 "Register",
                 "List",
-                "NewRecipe"
+                "NewRecipe",
+                "View"
         };
 
         for (String name : scenesNames) {
@@ -47,7 +48,7 @@ public class ScenesManagerSingleton {
         }
     }
 
-    public static ScenesManagerSingleton getInstance(Stage s) throws java.io.IOException {
-        return new ScenesManagerSingleton(s);
+    public static ScenesManager getInstance(Stage s) throws java.io.IOException {
+        return new ScenesManager(s);
     }
 }
