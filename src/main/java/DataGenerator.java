@@ -1,0 +1,48 @@
+import dataObjects.Recipe;
+import dataObjects.User;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class DataGenerator {
+
+    private DatabaseProvider db;
+
+    public DataGenerator () {
+        db = DatabaseProvider.getInstance();
+    }
+
+    public void generateAll () {
+        generateUsers();
+        generateRecipes();
+
+    }
+
+    public void generateUsers () {
+        List<String> nameList = Arrays.asList("Jane","John","Ann","Lucas","George","Harry","Josh","Franklin","Michael","Trevor","Martin","Christopher","Isabel","James","Caroline","Quentin");
+        List<String> surnameList = Arrays.asList("Foster","Johnson","Deep","Tractor","Philips","Tully","Johns","Bond","Took","Roosevelt","Grim","Tolkien","Albinos","Paper","Rock","Grant");
+
+        int iName, iSurname;
+        iName = iSurname = 0;
+        for(int i = 0; i < 20; i++) {
+            String name = nameList.get(iName);
+            String surname = surnameList.get(iSurname);
+            db.addUser(new User(name,surname,name+surname+"@example.com","test123"));
+            iName = (iName + 5) % nameList.size();
+            iSurname = (iSurname + 13) % surnameList.size();
+        }
+    }
+
+    public void generateRecipes () {
+        List<String> recipeNameList = Arrays.asList("Super Turkey","Mega Wonsz","Chinese-Man","Frank-Dear","Long Dolphin","ManInBlack","Parrot Sauce","Gorilla Spicy Breast","Kremowka");
+
+        List<User> allUsers = db.getUsers();
+
+        int i = 0;
+        for(String title : recipeNameList) {
+            db.addRecipe(new Recipe(allUsers.get(i),title));
+            i++;
+            i%=allUsers.size();
+        }
+    }
+}

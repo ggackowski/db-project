@@ -11,7 +11,7 @@
         <property name="dialect">org.hibernate.dialect.SQLiteDialect</property>
         <property name="connection.url">jdbc:sqlite:mydb.db</property>
         <property name="connection.driver_class">org.sqlite.JDBC</property>
-        <!--property name="hibernate.hbm2ddl.auto">update</property-->
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
 
         <mapping class="dataObjects.Rating"/>
         <mapping class="dataObjects.Recipe"/>
