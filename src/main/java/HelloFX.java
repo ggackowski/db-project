@@ -16,14 +16,14 @@ import org.hibernate.query.Query;
 import javax.persistence.metamodel.EntityType;
 
 public class HelloFX extends Application {
-
+    static ScenesManagerSingleton scenesManager;
     @Override
     public void start(Stage primaryStage) throws Exception{
-
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LogginScreen.fxml"));
+        scenesManager = ScenesManagerSingleton.getInstance(primaryStage);
+        //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("LogginScreen.fxml"));
         primaryStage.setTitle("Recipies");
-        primaryStage.setScene(new Scene(root, 640, 400));
-        primaryStage.show();
+        scenesManager.setScene("Loggin");
+
     }
 
     public static void main(String[] args) {

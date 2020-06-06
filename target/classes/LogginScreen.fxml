@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoggingScreen.LoggingScreen">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoggingScreen">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
@@ -16,7 +16,7 @@
             <TextField fx:id="passwordField" layoutX="235.0" layoutY="200.0" />
             <Text layoutX="235.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="302.3740234375" />
             <Button fx:id="loginButton" layoutX="348.0" layoutY="250.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="Log in" />
-            <Button fx:id="registerButton" layoutX="235.0" layoutY="250.0" mnemonicParsing="false" text="Register" />
+            <Button fx:id="registerButton" layoutX="235.0" layoutY="250.0" mnemonicParsing="false" onAction="#registerButtonOnAction" text="Register" />
          </children>
     </AnchorPane>
   </children>

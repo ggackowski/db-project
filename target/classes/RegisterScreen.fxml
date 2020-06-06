@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegisterScreen">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Text layoutX="84.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" wrappingWidth="302.3740234375" />
+            <TextField fx:id="loginField" layoutX="235.0" layoutY="124.0" />
+            <Text layoutX="235.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" wrappingWidth="302.3740234375" />
+            <TextField fx:id="repeatPasswordField" layoutX="235.0" layoutY="265.0" />
+            <Text layoutX="235.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="302.3740234375" />
+            <Button fx:id="registerButton" layoutX="333.0" layoutY="308.0" mnemonicParsing="false" text="Register" />
+            <TextField fx:id="passwordField" layoutX="235.0" layoutY="200.0" />
+            <Text layoutX="235.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repeat password" wrappingWidth="302.3740234375" />
+            <Button fx:id="backButton" layoutX="235.0" layoutY="308.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

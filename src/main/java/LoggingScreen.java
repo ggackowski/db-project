@@ -1,5 +1,3 @@
-package LoggingScreen;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -26,6 +24,11 @@ public class LoggingScreen  {
 
     public LoggingScreen() {
 
+    }
+
+    @FXML
+    public void registerButtonOnAction() {
+        HelloFX.scenesManager.setScene("Register");
     }
 
     @FXML
