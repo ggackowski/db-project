@@ -25,7 +25,8 @@ public class ScenesManagerSingleton {
         String[] scenesNames = {
                 "Loggin",
                 "Register",
-                "List"
+                "List",
+                "NewRecipe"
         };
 
         for (String name : scenesNames) {

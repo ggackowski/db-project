@@ -1,6 +1,7 @@
 import dataObjects.Recipe;
 import dataObjects.User;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 
@@ -12,8 +13,11 @@ public class ListScreen {
     private ListView<Text> listView;
 
     @FXML
+    private Button addNewRecipeButton;
+
+    @FXML
     void initialize() {
-        DatabaseProvider databaseProvider = DatabaseProvider.getInstance();
+       // DatabaseProvider databaseProvider = DatabaseProvider.getInstance();
 
 
         //User user = new User("Admin","Adminski","admin@admin.com","admin");
@@ -31,5 +35,10 @@ public class ListScreen {
 
     public ListScreen() {
 
+    }
+
+    @FXML
+    public void addNewRecipeButtonOnAction() {
+        HelloFX.scenesManager.setScene("NewRecipe");
     }
 }

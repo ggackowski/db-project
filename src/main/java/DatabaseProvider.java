@@ -28,7 +28,7 @@ public class DatabaseProvider {
     }
 
     private DatabaseProvider() {
-        final Session session = getSession();
+        /*final Session session = getSession();
         try {
             System.out.println  ("querying all the managed entities...");
             final Metamodel metamodel = session.getSessionFactory().getMetamodel();
@@ -43,6 +43,8 @@ public class DatabaseProvider {
         } finally {
             session.close();
         }
+
+         */
     }
 
     public static DatabaseProvider getInstance() {
