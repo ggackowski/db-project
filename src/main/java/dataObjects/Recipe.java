@@ -13,45 +13,43 @@ public class Recipe {
 
     @ManyToOne
     private User author;
+    private String title;
     private String description;
+    private String ingredients;
 
     @OneToMany
-    @JoinColumn(name = "RECIPE_FK")
     private final List<Rating> ratings = new ArrayList<>();
 
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    @JoinTable(name = "ingredients",
-            joinColumns = @JoinColumn(name = "RECIPE_ID"),
-            inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID")
-    )
-    private final List<Product> ingredients = new ArrayList<>();
-
     public Recipe() {}
-    public Recipe(User author) {
+    public Recipe(User author, String title) {
         this.author = author;
+        this.title = title;
         author.addRecipe(this);
     }
 
     public User getAuthor() {
         return author;
     }
+    public String getTitle() {
+        return title;
+    }
     public String getDescription() {
         return description;
+    }
+    public String getIngredients() {
+        return ingredients;
     }
     public List<Rating> getRatings() {
         return ratings;
     }
 
-    public void addDescription (String description) {
+    public void setDescription (String description) {
         this.description = description;
     }
-    public void addIngredient (Product ingredient) {
-        if(!ingredients.contains(ingredient))
-            ingredients.add(ingredient);
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
+
     public void addRating (Rating rating) {
         if(!ratings.contains(rating))
             ratings.add(rating);

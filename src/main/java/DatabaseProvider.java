@@ -9,6 +9,7 @@ import java.util.List;
 public class DatabaseProvider {
 
     private static final SessionFactory ourSessionFactory;
+    private final Session session;
 
     private static DatabaseProvider instance;
 
@@ -26,11 +27,13 @@ public class DatabaseProvider {
     public static Session getSession() throws HibernateException {
         return ourSessionFactory.openSession();
     }
+    public void closeSession () {
+        session.close();
+    }
 
     private DatabaseProvider() {
-        /*final Session session = getSession();
-        try {
-            System.out.println  ("querying all the managed entities...");
+        this.session = getSession();
+            System.out.println("querying all the managed entities...");
             final Metamodel metamodel = session.getSessionFactory().getMetamodel();
             for (EntityType<?> entityType : metamodel.getEntities()) {
                 final String entityName = entityType.getName();
@@ -40,11 +43,7 @@ public class DatabaseProvider {
                     System.out.println("  " + o);
                 }
             }
-        } finally {
-            session.close();
-        }
 
-         */
     }
 
     public static DatabaseProvider getInstance() {
@@ -54,38 +53,25 @@ public class DatabaseProvider {
     }
 
     public List<Recipe> getRecipes() {
-        Query query = getSession().createQuery("from Recipe");
+        Query query = session.createQuery("from Recipe");
         return query.list();
     }
     public List<User> getUsers() {
-        Query query = getSession().createQuery("from User");
-        return query.list();
-    }
-    public List<Product> getProducts() {
-        Query query = getSession().createQuery("from Product");
+        Query query = session.createQuery("from User");
         return query.list();
     }
 
     public void addRecipe (Recipe recipe) {
-        Session session = getSession();
         Transaction tx = session.beginTransaction();
         session.save(recipe);
         tx.commit();
     }
     public void addUser (User user) {
-        Session session = getSession();
         Transaction tx = session.beginTransaction();
         session.save(user);
         tx.commit();
     }
-    public void addProduct (Product product) {
-        Session session = getSession();
-        Transaction tx = session.beginTransaction();
-        session.save(product);
-        tx.commit();
-    }
     public void addRating (Rating rating) {
-        Session session = getSession();
         Transaction tx = session.beginTransaction();
         session.save(rating);
         tx.commit();
@@ -100,12 +86,12 @@ public class DatabaseProvider {
         }
         return null;
     }
-    public Product getProductByName (String name) {
-        List<Product> allProducts = getProducts();
+    public Recipe getRecipeByTitle (String title) {
+        List<Recipe> allRecipes = getRecipes();
 
-        for(Product product : allProducts) {
-            if(product.getName().equals(name))
-                return product;
+        for(Recipe recipe : allRecipes) {
+            if(recipe.getTitle().equals(title))
+                return recipe;
         }
         return null;
     }
