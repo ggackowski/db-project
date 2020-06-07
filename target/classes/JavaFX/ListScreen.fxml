@@ -13,7 +13,7 @@
             <ListView fx:id="listView" layoutX="87.0" layoutY="86.0" onEditStart="#test" prefHeight="200.0" prefWidth="472.0" />
             <Text layoutX="87.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All recipes" wrappingWidth="109.3740234375" />
             <Button fx:id="addNewRecipeButton" layoutX="440.0" layoutY="311.0" mnemonicParsing="false" onAction="#addNewRecipeButtonOnAction" text="Add new recipe" />
-            <Button fx:id="sampleRecipeButton" layoutX="82.0" layoutY="311.0" mnemonicParsing="false" onAction="#sampleRecipeButtonOnAction" text="See sample recipe :)" />
+            <Button fx:id="logButton" layoutX="82.0" layoutY="311.0" mnemonicParsing="false" onAction="#logButtonOnAction" text="Logout" />
          </children>
     </AnchorPane>
   </children>

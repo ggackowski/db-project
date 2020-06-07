@@ -2,7 +2,10 @@ package JavaFX;
 
 import Utils.CurrentRecipe;
 import Utils.CurrentUser;
+import Utils.DatabaseProvider;
+import dataObjects.Rating;
 import dataObjects.Recipe;
+import dataObjects.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -49,6 +52,17 @@ public class ViewScreen {
             ingredientsText.setText(recipe.getIngredients());
             authorText.setText(recipe.getAuthor().getEmail());
             String rating = Double.toString(recipe.getAVGRating());
+            //System.out.println(CurrentUser.getInstance().getLoggedUser().getEmail());
+            if (CurrentUser.getInstance().isUserLogged()) {
+                if (!CurrentUser.getInstance().getLoggedUser().getEmail().equals(authorText.getText())) {
+                    deleteButton.setVisible(false);
+                }
+            }
+            else {
+                    voteBox.setVisible(false);
+                    voteButton.setVisible(false);
+                    deleteButton.setVisible(false);
+            }
             if (rating.equals("NaN"))
                 rating = "No votes";
             ratingText.setText(rating);
@@ -73,12 +87,20 @@ public class ViewScreen {
     }
 
     public void deleteButtonOnAction() {
-        System.out.println("deleted xd");
-        //if ()
+
+
+            System.out.println("deleted xd");
+
+
     }
 
     public void voteButtonOnAction() {
         System.out.println("Voted " + voteBox.getValue());
+        Recipe recipe = CurrentRecipe.getInstance().get();
+        User user = CurrentUser.getInstance().getLoggedUser();
+        Rating rating = new Rating(user, recipe, Integer.parseInt(voteBox.getValue()));
+        DatabaseProvider.getInstance().addRating(rating);
+        HelloFX.scenesManager.setScene("View");
     }
 
 

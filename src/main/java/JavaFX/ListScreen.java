@@ -1,6 +1,7 @@
 package JavaFX;
 
 import Utils.CurrentRecipe;
+import Utils.CurrentUser;
 import dataObjects.Recipe;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -18,7 +19,7 @@ public class ListScreen {
     private Button addNewRecipeButton;
 
     @FXML
-    private Button sampleRecipeButton;
+    private Button logButton;
 
     @FXML
     void initialize() {
@@ -31,7 +32,13 @@ public class ListScreen {
 
         //databaseProvider.addUser(user);
         //databaseProvider.addRecipe(recipe);
-
+        if (!CurrentUser.getInstance().isUserLogged()) {
+            addNewRecipeButton.setVisible(false);
+            logButton.setText("Log in");
+        }
+        else {
+            logButton.setText("Log out " + CurrentUser.getInstance().getLoggedUser().getName());
+        }
 
         List<Recipe> recipes = databaseProvider.getRecipes();
 
@@ -55,11 +62,18 @@ public class ListScreen {
 
     @FXML
     public void addNewRecipeButtonOnAction() {
+
         HelloFX.scenesManager.setScene("NewRecipe");
     }
 
-    public void sampleRecipeButtonOnAction() {
-        HelloFX.scenesManager.setScene("View");
+    public void logButtonOnAction() {
+        if (CurrentUser.getInstance().isUserLogged()) {
+            CurrentUser.getInstance().logout();
+            HelloFX.scenesManager.setScene("List");
+        }
+        else {
+            HelloFX.scenesManager.setScene("Loggin");
+        }
     }
 
     public void test() {

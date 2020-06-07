@@ -24,21 +24,6 @@ public class ScenesManager {
      */
     public ScenesManager(Stage s) throws java.io.IOException {
         stage = s;
-        scenes = new HashMap<>();
-
-        String[] scenesNames = {
-                "Loggin",
-                "Register",
-                "List",
-                "NewRecipe",
-                "View"
-        };
-
-        for (String name : scenesNames) {
-            root= FXMLLoader.load(getClass().getResource(name + "Screen.fxml"));
-            Scene scene =new Scene(root);
-            scenes.put(name, scene);
-        }
     }
 
     /**
@@ -47,16 +32,11 @@ public class ScenesManager {
      */
     public void setScene(String sceneName) {
         try {
-            if (sceneName.equals("View")) {
                 root = FXMLLoader.load(getClass().getResource(sceneName + "Screen.fxml"));
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            } else if (scenes.containsKey(sceneName)) {
-                stage.setScene(scenes.get(sceneName));
-                scenes.get(sceneName);
-                stage.show();
-            }
+
         } catch (IOException e) {
             System.out.println("IO");
         }

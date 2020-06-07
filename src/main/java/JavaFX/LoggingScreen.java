@@ -18,6 +18,9 @@ public class LoggingScreen  {
     private Button loginButton;
 
     @FXML
+    private Button homeButton;
+
+    @FXML
     private Button registerButton;
 
     @FXML
@@ -52,6 +55,10 @@ public class LoggingScreen  {
             System.out.println("nie zalogowan");
             wrongUser.setVisible(true);
         }
+    }
+
+    public void homeButtonOnAction() {
+        HelloFX.scenesManager.setScene("List");
     }
 
 }

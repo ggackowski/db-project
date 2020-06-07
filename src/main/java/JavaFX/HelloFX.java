@@ -12,7 +12,7 @@ public class HelloFX extends Application {
     public void start(Stage primaryStage) throws Exception{
         scenesManager = ScenesManager.getInstance(primaryStage);
         primaryStage.setTitle("Recipies");
-        scenesManager.setScene("Loggin");
+        scenesManager.setScene("List");
         //DataGenerator dg = new DataGenerator();
         //dg.generateAll();
 

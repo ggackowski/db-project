@@ -33,6 +33,9 @@ public class RegisterScreen {
     private Button backButton;
 
     @FXML
+    private Button homeButton;
+
+    @FXML
     private Text emailTakenText;
 
     @FXML
@@ -64,6 +67,10 @@ public class RegisterScreen {
         else {
             passwordsText.setVisible(true);
         }
+    }
+
+    public void homeButtonOnAction() {
+        HelloFX.scenesManager.setScene("List");
     }
 
 }
