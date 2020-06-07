@@ -26,6 +26,14 @@ public class Recipe {
         this.title = title;
         author.addRecipe(this);
     }
+    public Recipe(User author, String title, String description, String ingredients) {
+        this.author = author;
+        this.title = title;
+        this.description = description;
+        this.ingredients = ingredients;
+        author.addRecipe(this);
+    }
+
 
     public User getAuthor() {
         return author;
