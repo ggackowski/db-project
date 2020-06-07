@@ -5,12 +5,22 @@ import dataObjects.User;
 import java.util.List;
 
 public class CurrentUser {
-    private boolean logged = false;
+    private boolean logged;
     private User loggedUser;
-    private DatabaseProvider dbProvider;
+    private final DatabaseProvider dbProvider;
 
-    public CurrentUser() {
+    private static CurrentUser instance;
+
+    public static CurrentUser getInstance() {
+        if(instance == null)
+            instance = new CurrentUser();
+        return instance;
+    }
+
+    private CurrentUser() {
         this.dbProvider = DatabaseProvider.getInstance();
+        logged = false;
+        loggedUser = null;
     }
 
     public boolean login (String email, String password) {
