@@ -54,6 +54,14 @@ public class Recipe {
         return ratings;
     }
 
+    public double getAVGRating () {
+        int sum = 0;
+        for(Rating rating : ratings) {
+            sum += rating.getRate();
+        }
+        return(double)sum/(double)ratings.size();
+    }
+
     public void setDescription (String description) {
         this.description = description;
     }
