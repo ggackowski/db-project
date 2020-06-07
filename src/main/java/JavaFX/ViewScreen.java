@@ -1,9 +1,13 @@
 package JavaFX;
 
+import Utils.CurrentRecipe;
+import dataObjects.Recipe;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.text.Text;
+
+import java.io.IOException;
 
 
 public class ViewScreen {
@@ -18,7 +22,10 @@ public class ViewScreen {
     private Text ingredientsText;
 
     @FXML
-    private Text howToText;
+    private Text authorText;
+
+    @FXML
+    private Text ratingText;
 
     @FXML
     private ChoiceBox<String> voteBox;
@@ -33,10 +40,19 @@ public class ViewScreen {
     private Button backButton;
 
     public void initialize() {
-        titleText.setText("Placki ziemniaczane");
-        descriptionText.setText("Smaczne placki bardzo");
-        ingredientsText.setText("-Ziemniaki 200g\n-Jajko 50g\n");
-        howToText.setText("Zetrzyj ziemniaki na tarce\nDodaj jajko\nWymieszaj\nUsmarz\nSmacznego!!\n");
+        if (CurrentRecipe.getInstance().get() != null) {
+            Recipe recipe = CurrentRecipe.getInstance().get();
+            System.out.println(CurrentRecipe.getInstance().get().getTitle());
+            titleText.setText(recipe.getTitle());
+            descriptionText.setText(recipe.getDescription());
+            ingredientsText.setText(recipe.getIngredients());
+            authorText.setText(recipe.getAuthor().getEmail());
+            
+        }else {
+            titleText.setText("Placki ziemniaczane");
+            descriptionText.setText("Smaczne placki bardzo");
+            ingredientsText.setText("-Ziemniaki 200g\n-Jajko 50g\n");
+        }
         voteBox.getItems().add("1");
         voteBox.getItems().add("2");
         voteBox.getItems().add("3");
@@ -48,7 +64,7 @@ public class ViewScreen {
 
     }
 
-    public void backButtonOnAction() {
+    public void backButtonOnAction() throws IOException {
         HelloFX.scenesManager.setScene("List");
     }
 

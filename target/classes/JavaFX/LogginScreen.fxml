@@ -17,6 +17,7 @@
             <Text layoutX="235.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="302.3740234375" />
             <Button fx:id="loginButton" layoutX="348.0" layoutY="250.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="Log in" />
             <Button fx:id="registerButton" layoutX="235.0" layoutY="250.0" mnemonicParsing="false" onAction="#registerButtonOnAction" text="Register" />
+            <Text fx:id="wrongUser" layoutX="420.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong username or password" wrappingWidth="205.3740234375" />
          </children>
     </AnchorPane>
   </children>

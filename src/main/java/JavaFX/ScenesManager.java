@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -15,6 +16,7 @@ public class ScenesManager {
 
     HashMap<String, Scene> scenes;
     Stage stage;
+    Parent root;
 
     /**
      * @param s nazwa stage
@@ -23,7 +25,7 @@ public class ScenesManager {
     public ScenesManager(Stage s) throws java.io.IOException {
         stage = s;
         scenes = new HashMap<>();
-        Parent root;
+
         String[] scenesNames = {
                 "Loggin",
                 "Register",
@@ -44,10 +46,21 @@ public class ScenesManager {
      *              Funkcja zmienia aktualną scenę na podaną w argumencie
      */
     public void setScene(String sceneName) {
-        if (scenes.containsKey(sceneName)) {
-            stage.setScene(scenes.get(sceneName));
-            stage.show();
+        try {
+            if (sceneName.equals("View")) {
+                root = FXMLLoader.load(getClass().getResource(sceneName + "Screen.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } else if (scenes.containsKey(sceneName)) {
+                stage.setScene(scenes.get(sceneName));
+                scenes.get(sceneName);
+                stage.show();
+            }
+        } catch (IOException e) {
+            System.out.println("IO");
         }
+
     }
 
     public static ScenesManager getInstance(Stage s) throws java.io.IOException {

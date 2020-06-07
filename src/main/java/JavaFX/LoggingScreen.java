@@ -4,6 +4,7 @@ import Utils.CurrentUser;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 public class LoggingScreen  {
 
@@ -20,8 +21,11 @@ public class LoggingScreen  {
     private Button registerButton;
 
     @FXML
-    void initialize() {
+    private Text wrongUser;
 
+    @FXML
+    void initialize() {
+        wrongUser.setVisible(false);
     }
 
     public LoggingScreen() {
@@ -40,10 +44,13 @@ public class LoggingScreen  {
         System.out.println(login + " " + password);
         CurrentUser currentUser = new CurrentUser();
         if (currentUser.login(login, password)) {
+            HelloFX.scenesManager.setScene("List");
             System.out.println("zalogowan");
         }
         else {
+
             System.out.println("nie zalogowan");
+            wrongUser.setVisible(true);
         }
     }
 

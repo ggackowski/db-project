@@ -10,18 +10,19 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Text layoutX="87.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="109.3740234375" />
+            <Text layoutX="64.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="109.3740234375" />
             <Button fx:id="addNewRecipeButton" layoutX="551.0" layoutY="311.0" mnemonicParsing="false" onAction="#voteButtonOnAction" text="Vote" />
-            <Text layoutX="87.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="109.3740234375" />
-            <Text layoutX="87.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients" wrappingWidth="109.3740234375" />
-            <Text layoutX="411.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to" wrappingWidth="109.3740234375" />
-            <Text fx:id="titleText" layoutX="87.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title text" wrappingWidth="109.3740234375" />
-            <Text fx:id="descriptionText" layoutX="87.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description text" wrappingWidth="109.3740234375" />
-            <Text fx:id="ingredientsText" layoutX="87.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients text" wrappingWidth="109.3740234375" />
-            <Text fx:id="howToText" layoutX="411.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to text" wrappingWidth="109.3740234375" />
+            <Text layoutX="326.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="109.3740234375" />
+            <Text layoutX="64.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients" wrappingWidth="109.3740234375" />
+            <Text fx:id="titleText" layoutX="64.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title text" wrappingWidth="109.3740234375" />
+            <Text fx:id="descriptionText" layoutX="326.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description text" wrappingWidth="109.3740234375" />
+            <Text fx:id="ingredientsText" layoutX="64.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients text" wrappingWidth="109.3740234375" />
             <Button fx:id="addNewRecipeButton1" layoutX="87.0" layoutY="311.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
             <Button fx:id="addNewRecipeButton11" layoutX="538.0" layoutY="26.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" text="Delete" />
             <ChoiceBox fx:id="voteBox" layoutX="477.0" layoutY="311.0" prefHeight="26.0" prefWidth="61.0" />
+            <Text layoutX="64.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" wrappingWidth="109.3740234375" />
+            <Text fx:id="authorText" layoutX="64.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author text" wrappingWidth="109.3740234375" />
+            <Text layoutX="381.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating text" wrappingWidth="83.3740234375" />
          </children>
     </AnchorPane>
   </children>
