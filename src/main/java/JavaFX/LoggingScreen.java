@@ -1,9 +1,9 @@
+package JavaFX;
+
+import Utils.CurrentUser;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
-
-import javax.xml.crypto.Data;
 
 public class LoggingScreen  {
 

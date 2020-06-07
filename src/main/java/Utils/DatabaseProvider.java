@@ -1,3 +1,5 @@
+package Utils;
+
 import dataObjects.*;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;

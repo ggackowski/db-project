@@ -1,11 +1,9 @@
-import dataObjects.Recipe;
-import dataObjects.User;
+package JavaFX;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
-
-import java.util.List;
 
 public class ListScreen {
 
@@ -20,7 +18,7 @@ public class ListScreen {
 
     @FXML
     void initialize() {
-       // DatabaseProvider databaseProvider = DatabaseProvider.getInstance();
+       // Utils.DatabaseProvider databaseProvider = Utils.DatabaseProvider.getInstance();
 
 
         //User user = new User("Admin","Adminski","admin@admin.com","admin");
