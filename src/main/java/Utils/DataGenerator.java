@@ -40,6 +40,9 @@ public class DataGenerator {
 
         List<User> allUsers = db.getUsers();
 
+        if(allUsers.size() <= 0)
+            return;
+
         int i = 0;
         for(String title : recipeNameList) {
             db.addRecipe(new Recipe(allUsers.get(i),title));

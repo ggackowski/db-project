@@ -65,17 +65,17 @@ public class DatabaseProvider {
 
     public void addRecipe (Recipe recipe) {
         Transaction tx = session.beginTransaction();
-        session.save(recipe);
+        session.saveOrUpdate(recipe);
         tx.commit();
     }
     public void addUser (User user) {
         Transaction tx = session.beginTransaction();
-        session.save(user);
+        session.saveOrUpdate(user);
         tx.commit();
     }
     public void addRating (Rating rating) {
         Transaction tx = session.beginTransaction();
-        session.save(rating);
+        session.saveOrUpdate(rating);
         tx.commit();
     }
 
