@@ -14,15 +14,15 @@
             <Button fx:id="addNewRecipeButton" layoutX="551.0" layoutY="311.0" mnemonicParsing="false" onAction="#voteButtonOnAction" text="Vote" />
             <Text layoutX="326.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="109.3740234375" />
             <Text layoutX="64.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients" wrappingWidth="109.3740234375" />
-            <Text fx:id="titleText" layoutX="64.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title text" wrappingWidth="109.3740234375" />
-            <Text fx:id="descriptionText" layoutX="326.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description text" wrappingWidth="109.3740234375" />
-            <Text fx:id="ingredientsText" layoutX="64.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients text" wrappingWidth="109.3740234375" />
+            <Text fx:id="titleText" layoutX="64.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title text" wrappingWidth="235.3740234375" />
+            <Text fx:id="descriptionText" layoutX="326.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description text" wrappingWidth="199.3740234375" />
+            <Text fx:id="ingredientsText" layoutX="64.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients text" wrappingWidth="235.3740234375" />
             <Button fx:id="addNewRecipeButton1" layoutX="87.0" layoutY="311.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
             <Button fx:id="addNewRecipeButton11" layoutX="538.0" layoutY="26.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" text="Delete" />
             <ChoiceBox fx:id="voteBox" layoutX="477.0" layoutY="311.0" prefHeight="26.0" prefWidth="61.0" />
             <Text layoutX="64.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" wrappingWidth="109.3740234375" />
-            <Text fx:id="authorText" layoutX="64.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author text" wrappingWidth="109.3740234375" />
-            <Text layoutX="381.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating text" wrappingWidth="83.3740234375" />
+            <Text fx:id="authorText" layoutX="64.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author text" wrappingWidth="235.3740234375" />
+            <Text fx:id="ratingText" layoutX="381.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating text" wrappingWidth="83.3740234375" />
          </children>
     </AnchorPane>
   </children>

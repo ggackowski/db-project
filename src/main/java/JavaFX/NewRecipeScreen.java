@@ -1,5 +1,8 @@
 package JavaFX;
 
+import Utils.CurrentUser;
+import Utils.DatabaseProvider;
+import dataObjects.Recipe;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -17,9 +20,6 @@ public class NewRecipeScreen {
     private TextArea ingredientsArea;
 
     @FXML
-    private TextArea howToArea;
-
-    @FXML
     private Button backButton;
 
     @FXML
@@ -34,6 +34,8 @@ public class NewRecipeScreen {
 
     @FXML
     public void addButtonOnAction() {
+        Recipe recipe = new Recipe(CurrentUser.getInstance().getLoggedUser(), titleField.getText(), descriptionArea.getText(), ingredientsArea.getText());
+        DatabaseProvider.getInstance().addRecipe(recipe);
         HelloFX.scenesManager.setScene("List");
     }
 

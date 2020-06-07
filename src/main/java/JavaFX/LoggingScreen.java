@@ -42,7 +42,7 @@ public class LoggingScreen  {
         String login = this.loginField.getText();
         String password = this.passwordField.getText();
         System.out.println(login + " " + password);
-        CurrentUser currentUser = new CurrentUser();
+        CurrentUser currentUser = CurrentUser.getInstance();
         if (currentUser.login(login, password)) {
             HelloFX.scenesManager.setScene("List");
             System.out.println("zalogowan");

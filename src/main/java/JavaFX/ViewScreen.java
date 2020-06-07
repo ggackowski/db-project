@@ -1,6 +1,7 @@
 package JavaFX;
 
 import Utils.CurrentRecipe;
+import Utils.CurrentUser;
 import dataObjects.Recipe;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -47,7 +48,10 @@ public class ViewScreen {
             descriptionText.setText(recipe.getDescription());
             ingredientsText.setText(recipe.getIngredients());
             authorText.setText(recipe.getAuthor().getEmail());
-            
+            String rating = Double.toString(recipe.getAVGRating());
+            if (rating.equals("NaN"))
+                rating = "No votes";
+            ratingText.setText(rating);
         }else {
             titleText.setText("Placki ziemniaczane");
             descriptionText.setText("Smaczne placki bardzo");
@@ -70,6 +74,7 @@ public class ViewScreen {
 
     public void deleteButtonOnAction() {
         System.out.println("deleted xd");
+        //if ()
     }
 
     public void voteButtonOnAction() {
