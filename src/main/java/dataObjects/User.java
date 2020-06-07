@@ -61,4 +61,11 @@ public class User {
         if(!recipes.contains(recipe))
             recipes.add(recipe);
     }
+
+    public void removeRecipe (Recipe recipe) {
+        recipes.remove(recipe);
+    }
+    public void removeRating (Rating rating) {
+        ratings.remove(rating);
+    }
 }

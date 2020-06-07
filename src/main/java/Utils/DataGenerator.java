@@ -29,7 +29,10 @@ public class DataGenerator {
         for(int i = 0; i < 20; i++) {
             String name = nameList.get(iName);
             String surname = surnameList.get(iSurname);
-            db.addUser(new User(name,surname,name+surname+"@example.com","test123"));
+            if(db.addUser(new User(name,surname,name+surname+"@example.com","test123")))
+                System.out.println("Added user: "+name+" "+surname);
+            else
+                System.out.println("Adding user: "+name+" "+surname+" FAILURE");
             iName = (iName + 5) % nameList.size();
             iSurname = (iSurname + 13) % surnameList.size();
         }
@@ -45,7 +48,10 @@ public class DataGenerator {
 
         int i = 0;
         for(String title : recipeNameList) {
-            db.addRecipe(new Recipe(allUsers.get(i),title));
+            if(db.addRecipe(new Recipe(allUsers.get(i),title)))
+                System.out.println("Added recipe: "+title);
+            else
+                System.out.println("Adding recipe: "+title+" FAILURE");
             i++;
             i%=allUsers.size();
         }

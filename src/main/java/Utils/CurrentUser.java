@@ -17,16 +17,17 @@ public class CurrentUser {
         if(logged)
             return false;
 
-        List<User> allUsers = dbProvider.getUsers();
+        User user = dbProvider.getUserByEmail(email);
 
-        for(User user : allUsers) {
-            if(user.getEmail().equals(email) && user.getPassword().equals(password)) {
-                this.loggedUser = user;
-                this.logged = true;
-                return true;
-            }
-        }
-        return false;
+        if(user == null)
+            return false;
+
+        if(!user.getPassword().equals(password))
+            return false;
+
+        this.loggedUser = user;
+        this.logged = true;
+        return true;
     }
 
     public void logout () {

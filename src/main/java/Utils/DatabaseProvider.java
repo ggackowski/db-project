@@ -63,19 +63,50 @@ public class DatabaseProvider {
         return query.list();
     }
 
-    public void addRecipe (Recipe recipe) {
+    public boolean addUser(User user) {
+        if(getUserByEmail(user.getEmail()) == null) {
+            Transaction tx = session.beginTransaction();
+            session.save(user);
+            tx.commit();
+            return true;
+        }
+        return false;
+    }
+    public boolean addRecipe(Recipe recipe) {
+        if(getRecipeByTitle(recipe.getTitle()) == null) {
+            Transaction tx = session.beginTransaction();
+            session.save(recipe);
+            tx.commit();
+            return true;
+        }
+        recipe.getAuthor().removeRecipe(recipe);
+        return false;
+    }
+    public boolean addRating(Rating rating) {
+        if(rating.getRecipe().getAuthor().equals(rating.getUser())) {
+            rating.getUser().removeRating(rating);
+            rating.getRecipe().removeRating(rating);
+            return false;
+        }
         Transaction tx = session.beginTransaction();
-        session.saveOrUpdate(recipe);
+        session.save(rating);
+        tx.commit();
+        return true;
+    }
+
+    public void updateUser(User user) {
+        Transaction tx = session.beginTransaction();
+        session.update(user);
         tx.commit();
     }
-    public void addUser (User user) {
+    public void updateRecipe(Recipe recipe) {
         Transaction tx = session.beginTransaction();
-        session.saveOrUpdate(user);
+        session.update(recipe);
         tx.commit();
     }
-    public void addRating (Rating rating) {
+    public void updateRating(Rating rating) {
         Transaction tx = session.beginTransaction();
-        session.saveOrUpdate(rating);
+        session.update(rating);
         tx.commit();
     }
 
@@ -84,6 +115,15 @@ public class DatabaseProvider {
 
         for(User user : allUsers) {
             if(user.getName().equals(name) && user.getSurname().equals(surname))
+                return user;
+        }
+        return null;
+    }
+    public User getUserByEmail (String email) {
+        List<User> allUsers = getUsers();
+
+        for(User user : allUsers) {
+            if(user.getEmail().equals(email))
                 return user;
         }
         return null;

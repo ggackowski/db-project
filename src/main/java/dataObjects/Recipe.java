@@ -65,8 +65,11 @@ public class Recipe {
         if(!ratings.contains(rating))
             ratings.add(rating);
     }
-
     public void addAuthor(User author) {
         this.author = author;
+    }
+
+    public void removeRating (Rating rating) {
+        ratings.remove(rating);
     }
 }

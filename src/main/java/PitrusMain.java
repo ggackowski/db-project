@@ -1,7 +1,6 @@
 import Utils.DataGenerator;
 import Utils.DatabaseProvider;
 import dataObjects.Recipe;
-import dataObjects.User;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class PitrusMain {
         for(Recipe recipe : allRecipes) {
             recipe.setIngredients("ingredients");
             recipe.setDescription("description");
-            db.addRecipe(recipe);
+            db.updateRecipe(recipe);
         }
 
         db.closeSession();
