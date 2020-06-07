@@ -66,7 +66,7 @@ public class DatabaseProvider {
     public boolean addUser(User user) {
         if(getUserByEmail(user.getEmail()) == null) {
             Transaction tx = session.beginTransaction();
-            session.save(user);
+            session.saveOrUpdate(user);
             tx.commit();
             return true;
         }
@@ -75,7 +75,7 @@ public class DatabaseProvider {
     public boolean addRecipe(Recipe recipe) {
         if(getRecipeByTitle(recipe.getTitle()) == null) {
             Transaction tx = session.beginTransaction();
-            session.save(recipe);
+            session.saveOrUpdate(recipe);
             tx.commit();
             return true;
         }
@@ -89,7 +89,7 @@ public class DatabaseProvider {
             return false;
         }
         Transaction tx = session.beginTransaction();
-        session.save(rating);
+        session.saveOrUpdate(rating);
         tx.commit();
         return true;
     }
@@ -107,6 +107,50 @@ public class DatabaseProvider {
     public void updateRating(Rating rating) {
         Transaction tx = session.beginTransaction();
         session.update(rating);
+        tx.commit();
+    }
+
+    public void removeUser (User user) {
+        Transaction tx = session.beginTransaction();
+        List<Rating> ratings = user.getRatings();
+        List<Recipe> recipes = user.getRecipes();
+
+        for(Rating rating : ratings) {
+            rating.getRecipe().removeRating(rating);
+            session.update(rating.getRecipe());
+            session.remove(rating);
+        }
+        for(Recipe recipe : recipes) {
+            List<Rating> recipeRatings = recipe.getRatings();
+            for(Rating rating : recipeRatings) {
+                rating.getUser().removeRating(rating);
+                session.update(rating.getUser());
+                session.remove(rating);
+            }
+            session.remove(recipe);
+        }
+        session.remove(user);
+        tx.commit();
+    }
+    public void removeRecipe (Recipe recipe) {
+        Transaction tx = session.beginTransaction();
+
+        List<Rating> ratings = recipe.getRatings();
+
+        for(Rating rating : ratings) {
+            removeRating(rating);
+        }
+
+        session.remove(recipe);
+        tx.commit();
+    }
+    public void removeRating (Rating rating) {
+
+        Transaction tx = session.beginTransaction();
+
+        rating.getUser().removeRating(rating);
+        rating.getRecipe().removeRating(rating);
+        session.remove(rating);
         tx.commit();
     }
 
