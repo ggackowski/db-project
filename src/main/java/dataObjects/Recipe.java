@@ -12,12 +12,15 @@ public class Recipe {
     private int dbID;
 
     @ManyToOne
+    @JoinColumn(name = "USER_FK")
     private User author;
+
     private String title;
     private String description;
     private String ingredients;
 
     @OneToMany
+    @JoinColumn(name = "RECIPE_FK")
     private final List<Rating> ratings = new ArrayList<>();
 
     public Recipe() {}

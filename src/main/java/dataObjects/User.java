@@ -18,9 +18,11 @@ public class User {
     private String password;
 
     @OneToMany
+    @JoinColumn(name = "USER_FK")
     private final List<Rating> ratings = new ArrayList<>();
 
     @OneToMany
+    @JoinColumn(name = "USER_FK")
     private final List<Recipe> recipes = new ArrayList<>();
 
     public User() {}

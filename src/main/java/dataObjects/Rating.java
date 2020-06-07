@@ -11,8 +11,10 @@ public class Rating {
 
     private int rate;
     @OneToOne
+    @JoinColumn(name = "USER_FK")
     private User user;
     @OneToOne
+    @JoinColumn(name = "RECIPE_FK")
     private Recipe recipe;
 
     public Rating() {}
