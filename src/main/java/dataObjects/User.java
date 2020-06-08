@@ -39,6 +39,9 @@ public class User {
     public String getSurname() {
         return surname;
     }
+    public String fullName() {
+        return name + " " + surname;
+    }
     public String getEmail() {
         return email;
     }

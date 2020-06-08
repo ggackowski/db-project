@@ -10,10 +10,12 @@ public class Rating {
     private int dbID;
 
     private int rate;
-    @OneToOne
+
+    @ManyToOne
     @JoinColumn(name = "USER_FK")
     private User user;
-    @OneToOne
+
+    @ManyToOne
     @JoinColumn(name = "RECIPE_FK")
     private Recipe recipe;
 
