@@ -2,6 +2,7 @@ package dataObjects;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Entity
@@ -19,15 +20,20 @@ public class Recipe {
     private String description;
     private String ingredients;
 
-    @OneToMany
-    @JoinColumn(name = "RECIPE_FK")
-    private final List<Rating> ratings = new ArrayList<>();
+    @ManyToMany
+    private List<User> raters;
+
+    private int ratingsSum;
+    private int ratingsNumber;
 
     public Recipe() {}
     public Recipe(User author, String title) {
         this.author = author;
         this.title = title;
         author.addRecipe(this);
+        this.ratingsNumber = 0;
+        this.ratingsSum = 0;
+        this.raters = new ArrayList<>();
     }
     public Recipe(User author, String title, String description, String ingredients) {
         this.author = author;
@@ -36,7 +42,6 @@ public class Recipe {
         this.ingredients = ingredients;
         author.addRecipe(this);
     }
-
 
     public User getAuthor() {
         return author;
@@ -50,18 +55,9 @@ public class Recipe {
     public String getIngredients() {
         return ingredients;
     }
-    public List<Rating> getRatings() {
-        return ratings;
-    }
 
     public double getAVGRating () {
-        if(ratings.size() < 1)
-            return 0;
-        int sum = 0;
-        for(Rating rating : ratings) {
-            sum += rating.getRate();
-        }
-        return(double)sum/(double)ratings.size();
+        return(double)ratingsSum/(double)ratingsNumber;
     }
 
     public void setTitle(String title) {
@@ -74,15 +70,18 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
-    public void addRating (Rating rating) {
-        if(!ratings.contains(rating))
-            ratings.add(rating);
+    public void addRating (User user, int rating) {
+        if(user.equals(author) || raters.contains(user))
+            return;
+        raters.add(user);
+        ratingsSum += rating;
+        ratingsNumber++;
     }
     public void addAuthor(User author) {
         this.author = author;
     }
 
-    public void removeRating (Rating rating) {
-        ratings.remove(rating);
+    public void removeRater (User user) {
+        raters.remove(user);
     }
 }

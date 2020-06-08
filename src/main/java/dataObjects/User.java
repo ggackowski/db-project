@@ -18,10 +18,6 @@ public class User {
     private String password;
 
     @OneToMany
-    @JoinColumn(name = "USER_FK")
-    private final List<Rating> ratings = new ArrayList<>();
-
-    @OneToMany
     @JoinColumn(name = "AUTHOR_FK")
     private final List<Recipe> recipes = new ArrayList<>();
 
@@ -49,17 +45,10 @@ public class User {
         return password;
     }
 
-    public List<Rating> getRatings() {
-        return ratings;
-    }
     public List<Recipe> getRecipes() {
         return recipes;
     }
 
-    public void addRating (Rating rating) {
-        if(!ratings.contains(rating))
-            ratings.add(rating);
-    }
     public void addRecipe (Recipe recipe) {
         if(!recipes.contains(recipe))
             recipes.add(recipe);
@@ -67,8 +56,5 @@ public class User {
 
     public void removeRecipe (Recipe recipe) {
         recipes.remove(recipe);
-    }
-    public void removeRating (Rating rating) {
-        ratings.remove(rating);
     }
 }

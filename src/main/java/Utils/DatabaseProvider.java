@@ -82,32 +82,6 @@ public class DatabaseProvider {
         recipe.getAuthor().removeRecipe(recipe);
         return false;
     }
-    public boolean addRating(Rating rating) {
-
-        if(rating.getRecipe().getAuthor().equals(rating.getUser())) {
-            rating.getUser().removeRating(rating);
-            rating.getRecipe().removeRating(rating);
-            return false;
-        }
-        List<Rating> userRatings = rating.getUser().getRatings();
-
-        int ratingsNumber = 0;
-
-        for(Rating iter : userRatings) {
-            if(iter.getRecipe().equals(rating.getRecipe()))
-                ratingsNumber++;
-        }
-        if(ratingsNumber > 1) {
-            rating.getUser().removeRating(rating);
-            rating.getRecipe().removeRating(rating);
-            return false;
-        }
-        System.out.println("Starting transaction xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-        Transaction tx = session.beginTransaction();
-        session.save(rating);
-        tx.commit();
-        return true;
-    }
 
     public void updateUser(User user) {
         Transaction tx = session.beginTransaction();
@@ -119,53 +93,26 @@ public class DatabaseProvider {
         session.update(recipe);
         tx.commit();
     }
-    public void updateRating(Rating rating) {
-        Transaction tx = session.beginTransaction();
-        session.update(rating);
-        tx.commit();
-    }
 
     public void removeUser (User user) {
         Transaction tx = session.beginTransaction();
-        List<Rating> ratings = user.getRatings();
         List<Recipe> recipes = user.getRecipes();
 
-        for(Rating rating : ratings) {
-            rating.getRecipe().removeRating(rating);
-            session.update(rating.getRecipe());
-            session.remove(rating);
-        }
         for(Recipe recipe : recipes) {
-            List<Rating> recipeRatings = recipe.getRatings();
-            for(Rating rating : recipeRatings) {
-                rating.getUser().removeRating(rating);
-                session.update(rating.getUser());
-                session.remove(rating);
-            }
             session.remove(recipe);
         }
+
+        recipes = getRecipes();
+        for(Recipe recipe : recipes) {
+            recipe.removeRater(user);
+        }
+
         session.remove(user);
         tx.commit();
     }
     public void removeRecipe (Recipe recipe) {
         Transaction tx = session.beginTransaction();
-
-        List<Rating> ratings = recipe.getRatings();
-
-        for(Rating rating : ratings) {
-            removeRating(rating);
-        }
-
         session.remove(recipe);
-        tx.commit();
-    }
-    public void removeRating (Rating rating) {
-
-        Transaction tx = session.beginTransaction();
-
-        rating.getUser().removeRating(rating);
-        rating.getRecipe().removeRating(rating);
-        session.remove(rating);
         tx.commit();
     }
 
