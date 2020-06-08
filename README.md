@@ -37,7 +37,7 @@ są zarządzane i pobierane dzięki narzędziu Maven.
 
 Pracowaliśmy w środowisku Intellij IDEA Ultimate.
 
-Bazy danych 
+Baza danych 
 ===================
 
 Baza danych znajduje się w pliku mydb.db.
