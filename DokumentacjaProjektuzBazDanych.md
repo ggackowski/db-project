@@ -22,7 +22,7 @@ użytkownik ma możliwość dodawania nowych przepisów. Dodane w ten sposób
 przepisy wyświetlają się następnie wśród pozostałych. Autor danej
 pozycji ma możliwość późniejszej edycji lub usunięcia przepisu.
 
-Wykorzystane technologie {#h.p7tr3t7kojng .c2}
+Wykorzystane technologie 
 ========================
 
 Aplikacja powstała z wykorzystaniem języka Java w wersji 11, środowisko
