@@ -81,8 +81,8 @@ public class Recipe {
         this.author = author;
     }
 
-    public boolean hasVoted (User user) {
-        return raters.contains(user);
+    public boolean canVote (User user) {
+        return !(user.equals(author) || raters.contains(user));
     }
 
     public void removeRater (User user) {

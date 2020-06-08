@@ -13,7 +13,6 @@
         <property name="connection.driver_class">org.sqlite.JDBC</property>
         <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
 
-        <mapping class="dataObjects.Rating"/>
         <mapping class="dataObjects.Recipe"/>
         <mapping class="dataObjects.User"/>
 

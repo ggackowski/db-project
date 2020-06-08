@@ -3,7 +3,6 @@ package JavaFX;
 import Utils.CurrentRecipe;
 import Utils.CurrentUser;
 import Utils.DatabaseProvider;
-import dataObjects.Rating;
 import dataObjects.Recipe;
 import dataObjects.User;
 import javafx.fxml.FXML;
@@ -27,6 +26,9 @@ public class ViewScreen {
 
     @FXML
     private Text authorText;
+
+    @FXML
+    private Text votedText;
 
     @FXML
     private Text ratingText;
@@ -54,12 +56,18 @@ public class ViewScreen {
             descriptionText.setText(recipe.getDescription());
             ingredientsText.setText(recipe.getIngredients());
             authorText.setText(recipe.getAuthor().fullName());
-            String rating = Double.toString(recipe.getAVGRating());
+            String rating = String.format("%.2f", recipe.getAVGRating());
+            votedText.setVisible(false);
             //System.out.println(CurrentUser.getInstance().getLoggedUser().getEmail());
             if (CurrentUser.getInstance().isUserLogged()) {
                 if (!CurrentUser.getInstance().getLoggedUser().equals(CurrentRecipe.getInstance().get().getAuthor())) {
                     deleteButton.setVisible(false);
                     editButton.setVisible(false);
+                }
+                if (!recipe.canVote(CurrentUser.getInstance().getLoggedUser())) {
+                    voteBox.setVisible(false);
+                    voteButton.setVisible(false);
+                    votedText.setVisible(true);
                 }
             }
             else {
@@ -109,8 +117,8 @@ public class ViewScreen {
         System.out.println("Voted " + voteBox.getValue());
         Recipe recipe = CurrentRecipe.getInstance().get();
         User user = CurrentUser.getInstance().getLoggedUser();
-        Rating rating = new Rating(user, recipe, Integer.parseInt(voteBox.getValue()));
-        DatabaseProvider.getInstance().addRating(rating);
+        recipe.addRating(user, Integer.parseInt(voteBox.getValue()));
+        DatabaseProvider.getInstance().updateRecipe(recipe);
         HelloFX.scenesManager.setScene("View");
     }
 

@@ -24,6 +24,7 @@
             <Text fx:id="authorText" layoutX="64.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author text" wrappingWidth="235.3740234375" />
             <Text fx:id="ratingText" layoutX="381.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating text" wrappingWidth="83.3740234375" />
             <Button fx:id="editButton" layoutX="547.0" layoutY="61.0" mnemonicParsing="false" onAction="#editButtonOnAction" text="Edit" />
+            <Text fx:id="votedText" layoutX="478.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have voted already" wrappingWidth="94.3740234375" />
          </children>
     </AnchorPane>
   </children>
