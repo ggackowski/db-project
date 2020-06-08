@@ -10,8 +10,6 @@ public class HelloFX extends Application {
     static ScenesManager scenesManager;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        //DataGenerator dg = new DataGenerator();
-        //dg.generateAll();
 
         scenesManager = ScenesManager.getInstance(primaryStage);
         primaryStage.setTitle("Recipies");
