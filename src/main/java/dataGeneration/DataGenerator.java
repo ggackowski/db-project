@@ -6,6 +6,7 @@ import dataObjects.User;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class DataGenerator {
 
@@ -18,7 +19,7 @@ public class DataGenerator {
     public void generateAll () {
         generateUsers();
         generateRecipes();
-
+        generateRatings();
     }
 
     public void generateUsers () {
@@ -27,7 +28,7 @@ public class DataGenerator {
 
         int iName, iSurname;
         iName = iSurname = 0;
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < 21; i++) {
             String name = nameList.get(iName);
             String surname = surnameList.get(iSurname);
             if(db.addUser(new User(name,surname,name+surname+"@example.com","test123")))
@@ -40,18 +41,24 @@ public class DataGenerator {
     }
 
     public void generateRecipes () {
-        List<String> recipeNameList = Arrays.asList("Easy Turkey","Sos koperkowy","Sos do pieczeni");
-        List<String> ingredients = Arrays.asList("1 turkey\n","szalotka 1 sztuka\n" +
-                "olej roślinny do smażenia 2 łyżki\n" +
-                "mleko 3,2% 200 mililitrów\n" +
-                "koper drobno pokrojony 0.25 pęczka\n" +
-                "masło 2 łyżki\n" +
-                "pieprz biały 1 szczypta\n" +
-                "Sos do pieczeni jasny Knorr 1 sztuka", "Sos do pieczeni jasny Knorr 1 sztuka\n" +
-                "ząbek czosnku 1 sztuka\n" +
-                "natka pietruszki 1 pęczek\n" +
-                "olej 2 łyżki");
-        List<String> descriptions = Arrays.asList("Put him into the oven\nTake out after 1 hours\nEnjoy your meal", "Na patelni," +
+        List<String> recipeNameList = Arrays.asList("Prosty indyk","Sos koperkowy","Sos do pieczeni","Kanapka z szynka","Rosół z kury");
+        List<String> ingredients = Arrays.asList("1 turkey\n","szalotka 1 sztuka\n" + //indyk i sos koperkowy
+                "olej roślinny do smażenia - 2 łyżki\n" +
+                "mleko 3,2% - 200 mililitrów\n" +
+                "koper drobno pokrojony - 0.25 pęczka\n" +
+                "masło - 2 łyżki\n" +
+                "pieprz biały - 1 szczypta\n" +
+                "Sos do pieczeni jasny Knorr - 1 sztuka", "Sos do pieczeni jasny Knorr - 1 sztuka\n" + //sos pieczeń
+                "ząbek czosnku - 1 sztuka\n" +
+                "natka pietruszki - 1 pęczek\n" +
+                "olej - 2 łyżki","Bułka - 1 sztuka\n" + //kanapka z szynką
+                "Szynka - 2 plastry\n" +
+                "Masło","krótki makaron - 100 gramów\n" + //rosół
+                "Rosół z kury Knorr - 2 sztuki\n" +
+                "korzeń pietruszki - 1 sztuka\n" +
+                "marchewka - 2 sztuki\n" +
+                "świeża natka pietruszki - 1 łyżka");
+        List<String> descriptions = Arrays.asList("Umieść indyka w piekarniku\nWyjmij go po godzinie\nSmacznego", "Na patelni," +
                 " na której przygotowywane było mięso na rozgrzanym tłuszczu zeszklij drobno posiekaną szalotkę, dodaj do niej mleko.\n" +
                 "Dodaj Sos do pieczeni jasny Knorr, dzięki któremu sos będzie gęsty i dobrze doprawiony. Całość dokładnie wymieszaj.\n" +
                 "Wszystko razem gotuj aż sos zacznie gęstnieć. Na koniec dodaj masło i koperek . Sos " +
@@ -59,7 +66,13 @@ public class DataGenerator {
                 " posiekaj drobno i rozetrzyj na desce nożem.\n" +
                 "Na rozgrzanym oleju podsmaż czosnek, wlej 250 ml ciepłej wody i dodaj Sos do pieczeni jasny Knorr , dzięki której sos" +
                 " będzie gęsty i dobrze doprawiony. Sos gotuj 2-3 minuty.\n" +
-                "W trakcie gotowania dodaj posiekaną natkę pietruszki. Gotowy sos podawaj do pieczonych mięs, np. karkówki.");
+                "W trakcie gotowania dodaj posiekaną natkę pietruszki. Gotowy sos podawaj do pieczonych mięs, np. karkówki.", "Przekrój bułkę\n" +
+                "Posmaruj bułkę masłem\n" +
+                "Połóż plastry szynki\n" +
+                "Kanapka gotowa","Ugotuj makaron wg wskazówek na opakowaniu.\n" +
+                "Obierz i pokrój w plasterki marchewkę i pietruszkę.\n" +
+                "Dodaj kostki rosołowe Knorr do 1 l wody. Zagotuj. Dodaj warzywa i gotuj przez 10 min.\n" +
+                "Dodaj makaron i jeszcze raz zagotuj.Zupę serwuj posypaną posiekaną zieloną pietruszką.");
         List<User> allUsers = db.getUsers();
 
         if(allUsers.size() <= 0)
@@ -78,6 +91,30 @@ public class DataGenerator {
             i++;
             j++;
             i%=allUsers.size();
+        }
+    }
+
+    public void generateRatings () {
+        List<User> allUsers= db.getUsers();
+        List<Recipe> allRecipes= db.getRecipes();
+
+        int iUser,iRecipe;
+        iUser = iRecipe = 0;
+        for(int i = 0; i < 40; i++) {
+            Random random = new Random();
+            Recipe recipe = allRecipes.get(iRecipe);
+            int randInt = random.nextInt();
+            if(randInt < 0) {
+                randInt *= -1;
+            }
+            recipe.addRating(allUsers.get(iUser),randInt%6);
+            db.updateRecipe(recipe);
+
+            iUser += 5;
+            iRecipe += 3;
+
+            iUser %= allUsers.size();
+            iRecipe %= allRecipes.size();
         }
     }
 }
