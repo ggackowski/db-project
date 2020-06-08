@@ -22,7 +22,7 @@ public class User {
     private final List<Rating> ratings = new ArrayList<>();
 
     @OneToMany
-    @JoinColumn(name = "USER_FK")
+    @JoinColumn(name = "AUTHOR_FK")
     private final List<Recipe> recipes = new ArrayList<>();
 
     public User() {}

@@ -12,7 +12,7 @@ public class Recipe {
     private int dbID;
 
     @ManyToOne
-    @JoinColumn(name = "USER_FK")
+    @JoinColumn(name = "AUTHOR_FK")
     private User author;
 
     private String title;
