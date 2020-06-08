@@ -43,6 +43,9 @@ public class ViewScreen {
     @FXML
     private Button backButton;
 
+    @FXML
+    private Button editButton;
+
     public void initialize() {
         if (CurrentRecipe.getInstance().get() != null) {
             Recipe recipe = CurrentRecipe.getInstance().get();
@@ -54,11 +57,13 @@ public class ViewScreen {
             String rating = Double.toString(recipe.getAVGRating());
             //System.out.println(CurrentUser.getInstance().getLoggedUser().getEmail());
             if (CurrentUser.getInstance().isUserLogged()) {
-                if (!CurrentUser.getInstance().getLoggedUser().getEmail().equals(authorText.getText())) {
+                if (!CurrentUser.getInstance().getLoggedUser().equals(CurrentRecipe.getInstance().get().getAuthor())) {
                     deleteButton.setVisible(false);
+                    editButton.setVisible(false);
                 }
             }
             else {
+                    editButton.setVisible(false);
                     voteBox.setVisible(false);
                     voteButton.setVisible(false);
                     deleteButton.setVisible(false);
@@ -94,6 +99,10 @@ public class ViewScreen {
             System.out.println("deleted xd");
 
 
+    }
+
+    public void editButtonOnAction() {
+        HelloFX.scenesManager.setScene("EditRecipe");
     }
 
     public void voteButtonOnAction() {

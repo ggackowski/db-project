@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.EditRecipeScreen">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Text layoutX="38.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit recipe" wrappingWidth="302.3740234375" />
+            <TextField fx:id="titleField" layoutX="94.0" layoutY="87.0" />
+            <Text layoutX="94.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="151.3740234375" />
+            <Button fx:id="saveButton" layoutX="332.0" layoutY="351.0" mnemonicParsing="false" onAction="#saveButtonOnAction" text="Save" />
+            <Text layoutX="340.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="171.0" />
+            <Button fx:id="backButton" layoutX="236.0" layoutY="351.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
+            <TextArea fx:id="descriptionArea" layoutX="332.0" layoutY="87.0" prefHeight="242.0" prefWidth="255.0" />
+            <TextArea fx:id="ingredientsArea" layoutX="94.0" layoutY="159.0" prefHeight="168.0" prefWidth="171.0" />
+            <Text layoutX="94.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients" wrappingWidth="151.3740234375" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

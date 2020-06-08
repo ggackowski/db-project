@@ -47,10 +47,6 @@
                 <mainClass>JavaFX.HelloFX</mainClass>
             </configuration>
         </plugin>
-
-
     </plugins>
     </build>
-
-
 </project>
