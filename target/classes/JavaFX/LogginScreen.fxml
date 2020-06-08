@@ -12,7 +12,7 @@
          <children>
             <Text layoutX="84.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log in to continue" wrappingWidth="302.3740234375" />
             <TextField fx:id="loginField" layoutX="235.0" layoutY="124.0" />
-            <Text layoutX="235.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" wrappingWidth="302.3740234375" />
+            <Text layoutX="235.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="302.3740234375" />
             <TextField fx:id="passwordField" layoutX="235.0" layoutY="200.0" />
             <Text layoutX="235.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="302.3740234375" />
             <Button fx:id="loginButton" layoutX="348.0" layoutY="250.0" mnemonicParsing="false" onAction="#loginButtonOnAction" text="Log in" />
