@@ -1,6 +1,5 @@
 package JavaFX;
 
-import Utils.DataGenerator;
 import Utils.DatabaseProvider;
 import javafx.application.Application;
 import javafx.stage.Stage;

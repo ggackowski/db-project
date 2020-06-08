@@ -1,13 +1,12 @@
-import Utils.CurrentUser;
-import Utils.DataGenerator;
+package dataGeneration;
+
+import dataGeneration.DataGenerator;
 import Utils.DatabaseProvider;
 import dataObjects.Rating;
 import dataObjects.Recipe;
 import dataObjects.User;
 
-import java.util.List;
-
-public class PitrusMain {
+public class GeneratorMain {
 
     public static void main(String[] args) {
         DatabaseProvider db = DatabaseProvider.getInstance();

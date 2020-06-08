@@ -1,5 +1,6 @@
-package Utils;
+package dataGeneration;
 
+import Utils.DatabaseProvider;
 import dataObjects.Recipe;
 import dataObjects.User;
 
