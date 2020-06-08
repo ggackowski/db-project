@@ -1,20 +1,18 @@
-![](images/image1.jpg)Projekt Bazy Danych
+Projekt Bazy Danych
 
 Dokumentacja
-
-### Łukasz Pitrus {#h.pjfzw87kwqkg .c32}
 
 Grzegorz Gackowski
 
 * * * * *
 
-Opis projektu {#h.pnqjh1gxzsu4 .c2}
+Opis projektu 
 =============
 
 Projekt jest prostą aplikacją z przepisami napisaną w języku Java,
 wykorzystującą technologie Hibernate, JavaFX oraz bazę danych SQLite.
 
-Funkcjonalności aplikacji {#h.r0wnosgc7w8y .c2}
+Funkcjonalności aplikacji 
 =========================
 
 Aplikacja umożliwia przeglądanie znajdujących się w bazie przepisów, Po
@@ -37,12 +35,12 @@ są zarządzane i pobierane dzięki narzędziu Maven.
 
 Pracowaliśmy w środowisku Intellij IDEA Ultimate.
 
-Diagram bazy danych {#h.cdm6mla7tmrn .c2}
+Diagram bazy danych 
 ===================
 
-Baza danych znajduje się w pliku mydb.db.![](images/image2.png)
+Baza danych znajduje się w pliku mydb.db.
 
-Przewodnik po kodzie {#h.g70qer4xirx0 .c2}
+Przewodnik po kodzie 
 ====================
 
 Klasy podzielone są na następujące pakiety
@@ -196,7 +194,7 @@ bazą. Informuje o mapowanych do bazy klasach
 | \</hibernate-configuration\>                                             |
 +--------------------------------------------------------------------------+
 
-Połączenie z bazą danych {#h.d3xh1isy2hgn .c2}
+Połączenie z bazą danych 
 ========================
 
 Metody obsługujące bazę danych z klasy DatabaseProvider
@@ -253,7 +251,7 @@ void removeRecipe (Recipe recipe)
 
 Usuwa przepis
 
-Sposób uruchomienia {#h.5mo2e75e089o .c2}
+Sposób uruchomienia 
 ===================
 
 Jeśli jest to pierwsze uruchomienie aplikacji i nie jest ona wypełniona
@@ -274,21 +272,22 @@ linijka
 Aplikacja uruchamia się i można z niej korzystać w sposób opisany w
 następnym punkcie.
 
-Działanie programu {#h.p595x1hgh5yt .c2}
+Działanie programu 
 ==================
 
 Po uruchomieniu programu wyświetla się lista dostępnych w bazie
-przepisów![](images/image7.png)
+przepisów
 
-Skąd można przejść do ekranu logowania![](images/image4.png)
+Skąd można przejść do ekranu logowania
 
 Po kliknięciu w wybrany przepis możliwe jest przeczytanie dalszych
-informacji o nim![](images/image5.png)
+informacji o nim
 
-Zalogowany użytkownik ma możliwość oceny przepisu![](images/image3.png)
+Zalogowany użytkownik ma możliwość oceny przepisu
 
-Może także dodawać własne przepisy![](images/image6.png)
+Może także dodawać własne przepisy
 
 Link do repozytorium
 
-[https://github.com/ggackowski/db-project](https://www.google.com/url?q=https://github.com/ggackowski/db-project&sa=D&ust=1591647312800000)
+[https://github.com/ggackowski/db-project]
+(https://www.google.com/url?q=https://github.com/ggackowski/db-project&sa=D&ust=1591647312800000)
