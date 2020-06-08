@@ -4,27 +4,45 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.ViewScreen">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Text layoutX="64.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="109.3740234375" />
+            <Text layoutX="19.0" layoutY="30.0" stroke="#c3c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="109.3740234375">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
             <Button fx:id="voteButton" layoutX="551.0" layoutY="311.0" mnemonicParsing="false" onAction="#voteButtonOnAction" text="Vote" />
-            <Text layoutX="326.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="109.3740234375" />
-            <Text layoutX="64.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients" wrappingWidth="109.3740234375" />
-            <Text fx:id="titleText" layoutX="64.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title text" wrappingWidth="235.3740234375" />
-            <Text fx:id="descriptionText" layoutX="326.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description text" wrappingWidth="199.3740234375" />
-            <Text fx:id="ingredientsText" layoutX="64.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients text" wrappingWidth="235.3740234375" />
+            <Text layoutX="277.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="109.3740234375">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text layoutX="19.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients" wrappingWidth="109.3740234375">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text fx:id="titleText" layoutX="19.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title text" textAlignment="JUSTIFY" wrappingWidth="235.3740234375" />
+            <Text fx:id="descriptionText" layoutX="277.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description text" textAlignment="JUSTIFY" wrappingWidth="275.3740234375" />
+            <Text fx:id="ingredientsText" layoutX="19.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients text" textAlignment="JUSTIFY" wrappingWidth="235.3740234375" />
             <Button fx:id="backButton" layoutX="87.0" layoutY="311.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
-            <Button fx:id="deleteButton" layoutX="538.0" layoutY="26.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" text="Delete" />
+            <Button fx:id="deleteButton" layoutX="560.0" layoutY="29.0" mnemonicParsing="false" onAction="#deleteButtonOnAction" text="Delete" />
             <ChoiceBox fx:id="voteBox" layoutX="477.0" layoutY="311.0" prefHeight="26.0" prefWidth="61.0" />
-            <Text layoutX="64.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" wrappingWidth="109.3740234375" />
-            <Text fx:id="authorText" layoutX="64.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author text" wrappingWidth="235.3740234375" />
-            <Text fx:id="ratingText" layoutX="381.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating text" wrappingWidth="83.3740234375" />
-            <Button fx:id="editButton" layoutX="547.0" layoutY="61.0" mnemonicParsing="false" onAction="#editButtonOnAction" text="Edit" />
+            <Text layoutX="19.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" wrappingWidth="109.3740234375">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Text>
+            <Text fx:id="authorText" layoutX="19.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author text" textAlignment="JUSTIFY" wrappingWidth="235.3740234375" />
+            <Text fx:id="ratingText" layoutX="373.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating text" wrappingWidth="83.3740234375" />
+            <Button fx:id="editButton" layoutX="560.0" layoutY="61.0" mnemonicParsing="false" onAction="#editButtonOnAction" prefHeight="26.0" prefWidth="61.0" text="Edit" />
             <Text fx:id="votedText" layoutX="478.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have voted already" wrappingWidth="94.3740234375" />
+            <Text fx:id="ratingText1" layoutX="305.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:" wrappingWidth="68.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
          </children>
     </AnchorPane>
   </children>
