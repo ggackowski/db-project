@@ -24,9 +24,8 @@ public class GeneratorMain {
 //        }
 
         Recipe recipe = db.getRecipeByTitle("Easy Turkey");
-        System.out.println("Got recipe xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-        User user = db.getUserByName("Harry","Paper");
-        System.out.println("Got user xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+//        User user = db.getUserByName("Harry","Paper");
+        User user = db.getUserByName("Martin","Tolkien");
 
         Rating rating = new Rating(user,recipe,1);
 
@@ -46,6 +45,6 @@ public class GeneratorMain {
 //
 //        db.removeRating(ratings.get(0));
 
-        db.closeSession();
+//        db.closeSession();
     }
 }

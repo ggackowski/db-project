@@ -55,6 +55,8 @@ public class Recipe {
     }
 
     public double getAVGRating () {
+        if(ratings.size() < 1)
+            return 0;
         int sum = 0;
         for(Rating rating : ratings) {
             sum += rating.getRate();
@@ -62,6 +64,9 @@ public class Recipe {
         return(double)sum/(double)ratings.size();
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
     public void setDescription (String description) {
         this.description = description;
     }
