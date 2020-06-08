@@ -83,13 +83,28 @@ public class DatabaseProvider {
         return false;
     }
     public boolean addRating(Rating rating) {
+
         if(rating.getRecipe().getAuthor().equals(rating.getUser())) {
             rating.getUser().removeRating(rating);
             rating.getRecipe().removeRating(rating);
             return false;
         }
+        List<Rating> userRatings = rating.getUser().getRatings();
+
+        int ratingsNumber = 0;
+
+        for(Rating iter : userRatings) {
+            if(iter.getRecipe().equals(rating.getRecipe()))
+                ratingsNumber++;
+        }
+        if(ratingsNumber > 1) {
+            rating.getUser().removeRating(rating);
+            rating.getRecipe().removeRating(rating);
+            return false;
+        }
+        System.out.println("Starting transaction xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         Transaction tx = session.beginTransaction();
-        session.saveOrUpdate(rating);
+        session.save(rating);
         tx.commit();
         return true;
     }

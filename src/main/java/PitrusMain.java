@@ -12,10 +12,10 @@ public class PitrusMain {
     public static void main(String[] args) {
         DatabaseProvider db = DatabaseProvider.getInstance();
 
-//        DataGenerator dg = new DataGenerator();
-//
-//        dg.generateAll();
-//
+        DataGenerator dg = new DataGenerator();
+
+        dg.generateAll();
+
 //        List<Recipe> allRecipes = db.getRecipes();
 //
 //        for(Recipe recipe : allRecipes) {
@@ -23,38 +23,26 @@ public class PitrusMain {
 //            recipe.setDescription("description");
 //            db.updateRecipe(recipe);
 //        }
-//
-//        CurrentUser currUs = CurrentUser.getInstance();
-//
-//        List<User> allUsers = db.getUsers();
-//        User user = allUsers.get(1);
-//
-//        if(currUs.login(user.getEmail(),user.getPassword()))
-//            System.out.println("SUCCESS SUCCESS SUCCESS SUCCESS SUCCESS SUCCESS SUCCESS");
-//        else
-//            System.out.println("FAILURE FAILURE FAILURE FAILURE FAILURE FAILURE FAILURE");
-//
-//        Rating rating = new Rating(user,allRecipes.get(3),1);
-//
-//        System.out.println(user.getEmail());
-//        System.out.println(allRecipes.get(3).getAuthor().getEmail());
+
+        Recipe recipe = db.getRecipeByTitle("Easy Turkey");
+        System.out.println("Got recipe xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        User user = db.getUserByName("Harry","Paper");
+        System.out.println("Got user xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+
+        Rating rating = new Rating(user,recipe,1);
+
+        if(db.addRating(rating))
+            System.out.println("SUCCESS SUCCESS SUCCESS SUCCESS SUCCESS SUCCESS SUCCESS");
+        else
+            System.out.println("FAILURE FAILURE FAILURE FAILURE FAILURE FAILURE FAILURE");
+
+//        rating = new Rating(user,allRecipes.get(6),1);
 //
 //        if(db.addRating(rating))
 //            System.out.println("SUCCESS SUCCESS SUCCESS SUCCESS SUCCESS SUCCESS SUCCESS");
 //        else
 //            System.out.println("FAILURE FAILURE FAILURE FAILURE FAILURE FAILURE FAILURE");
 
-//        User user = db.getUserByName("Jane","Foster");
-        Recipe recipe = db.getRecipeByTitle("ManInBlack");
-
-//        db.addUser(new User("Filip","Hajzer","hajzer@example.com","xD"));
-
-//        db.removeUser(user);
-        db.removeRecipe(recipe);
-
-//        Rating rating = new Rating(user,recipe,1);
-//        db.addRating(rating);
-//
 //        List<Rating> ratings = user.getRatings();
 //
 //        db.removeRating(ratings.get(0));
