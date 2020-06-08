@@ -50,7 +50,7 @@ public class ViewScreen {
             titleText.setText(recipe.getTitle());
             descriptionText.setText(recipe.getDescription());
             ingredientsText.setText(recipe.getIngredients());
-            authorText.setText(recipe.getAuthor().getEmail());
+            authorText.setText(recipe.getAuthor().fullName());
             String rating = Double.toString(recipe.getAVGRating());
             //System.out.println(CurrentUser.getInstance().getLoggedUser().getEmail());
             if (CurrentUser.getInstance().isUserLogged()) {
@@ -88,7 +88,9 @@ public class ViewScreen {
 
     public void deleteButtonOnAction() {
 
-
+            DatabaseProvider.getInstance().removeRecipe(CurrentRecipe.getInstance().get());
+            CurrentRecipe.getInstance().set(null);
+            HelloFX.scenesManager.setScene("List");
             System.out.println("deleted xd");
 
 
