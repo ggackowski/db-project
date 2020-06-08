@@ -163,38 +163,8 @@ Opisuje strukturę widoku ekranu rejestracji.
 -   hibernate.cfg.xml
 
 Zawiera informacje o dialekcie bazy danych oraz o lokalizacji pliku z
-bazą. Informuje o mapowanych do bazy klasach
+bazą. Informuje o mapowanych do bazy klasach.
 
-+--------------------------------------------------------------------------+
-| \<?xml version='1.0' encoding='utf-8'?\>\                                |
-| \<!DOCTYPE hibernate-configuration PUBLIC\                               |
-|         "-//Hibernate/Hibernate Configuration DTD//EN"\                  |
-|                                                                          |
-|  "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"\>\       |
-| \<hibernate-configuration\>\                                             |
-| \                                                                        |
-|     \<session-factory\>\                                                 |
-| \                                                                        |
-|         \<property name="show\_sql"\>true\</property\>\                  |
-|         \<property name="format\_sql"\>true\</property\>\                |
-|                                                                          |
-|  \<property name="dialect"\>org.hibernate.dialect.SQLiteDialect\</proper |
-| ty\>\                                                                    |
-|                                                                          |
-|  \<property name="connection.url"\>jdbc:sqlite:mydb.db\</property\>\     |
-|                                                                          |
-|  \<property name="connection.driver\_class"\>org.sqlite.JDBC\</property\ |
-| >\                                                                       |
-|         \<!--\<property                                                  |
-| name="hibernate.hbm2ddl.auto"\>create\</property\>--\>\                  |
-| \                                                                        |
-|         \<mapping class="dataObjects.Rating"/\>\                         |
-|         \<mapping class="dataObjects.Recipe"/\>\                         |
-|         \<mapping class="dataObjects.User"/\>\                           |
-| \                                                                        |
-|     \</session-factory\>\                                                |
-| \</hibernate-configuration\>                                             |
-+--------------------------------------------------------------------------+
 
 Połączenie z bazą danych 
 ========================
