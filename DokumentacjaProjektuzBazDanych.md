@@ -2,6 +2,8 @@ Projekt Bazy Danych
 
 Dokumentacja
 
+Łukasz Pitrus
+
 Grzegorz Gackowski
 
 * * * * *
